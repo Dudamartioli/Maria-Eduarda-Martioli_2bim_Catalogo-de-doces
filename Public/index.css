@@ -1,0 +1,120 @@
+:root{
+    --preto: black;
+    --branco: white;
+    --vermelho: red;
+}
+
+/* Remove margens padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--branco);
+    color: var(--vermelho);
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--vermelho);
+    color: var(--branco);
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 2px 10px var(--vermelho);
+}
+
+/* Área principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Caixa principal */
+.container {
+    background-color: var(--branco);
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--vermelho);
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    color: var(--vermelho);
+    margin-bottom: 20px;
+}
+
+/* Botão */
+button {
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--vermelho);
+    transform: scale(1.05);
+}
+
+/* Área de resultados */
+.resultado {
+    margin-top: 25px;
+    padding: 15px;
+    min-height: 80px;
+    background-color: var(--branco);
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--vermelho);
+    color: var(--branco);
+    text-align: center;
+    padding: 15px;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+}
+
+.card {
+    text-align: center;
+}
+
+.card img {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px var(--vermelho);
+}
+
+.card p {
+    margin-top: 8px;
+    font-weight: bold;
+    color: var(--vermelho);
+}
