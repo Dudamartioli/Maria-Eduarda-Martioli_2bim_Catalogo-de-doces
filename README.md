@@ -100,7 +100,7 @@ Fluxo da aplicação:
 ## 1. Clonar o projeto
 
 ```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+git clone https://github.com/Dudamartioli/Maria-Eduarda-Martioli_2bim_Catalogo-de-doces.git
 ```
 
 ---
@@ -108,7 +108,7 @@ git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
 ## 2. Entrar na pasta
 
 ```bash
-cd nome-do-projeto
+cd Maria-Eduarda-Martioli_2bim_Catalogo-de-doces
 ```
 
 ---
@@ -128,7 +128,7 @@ Exemplo:
 ```env
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=nome_do_banco
+DB_NAME=trabalho-dw1-2bimestre
 DB_USER=postgres
 DB_PASSWORD=sua_senha
 
