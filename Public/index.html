@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Doces</title>
-    <!-- Texto que aparece na aba do navegador -->
 
     <link rel="stylesheet" href="index.css">
-    <!-- Conecta o arquivo CSS responsável pela aparência da página -->
 
 </head>
 
@@ -37,10 +34,12 @@
 
             <button onclick="ftodos()">Listar todos os doces</button>
             <button onclick="ftrufas()">Listar Trufas</button>
-            <button onclick="fpaodemel()">Listar Pães de mel</button>
+            <button onclick="fpaodemel()">Listar Pães de Mel</button>
 
-
-            <div id="resultado" class="resultado"></div>
+            <!-- Área com rolagem -->
+            <div class="resultado-container">
+                <div id="resultado" class="resultado"></div>
+            </div>
 
         </div>
     </main>
@@ -50,30 +49,15 @@
     <script>
 
         const enderecoServidor = 'localhost';
-        // Endereço onde o servidor está rodando
-        // localhost significa "meu próprio computador"
-
         const porta = '3001';
-        // Porta utilizada pelo servidor
 
         async function ftodos() {
-            // Cria uma função assíncrona chamada ftodos
-            // Ela será executada ao clicar no botão
 
             try {
-                // Tenta executar o código abaixo
-                // Caso aconteça algum erro, vai para o catch
 
                 const resposta = await fetch(
                     `http://${enderecoServidor}:${porta}/doces`
                 );
-                /*
-                Faz uma requisição GET para:
-                http://localhost:3000/doces
-    
-                await = espera o servidor responder antes de continuar
-                fetch() = função usada para fazer requisições HTTP
-                */
 
                 const dados = await resposta.json();
 
@@ -84,68 +68,30 @@
                 }
 
                 let html = '';
-                // Cria uma variável vazia para armazenar o HTML
 
                 dados.forEach(doce => {
-                    /*
-                    Percorre cada item do vetor recebido
-        
-                    doce representa um registro retornado pelo banco
-        
-                    Exemplo:
-                    doce.nome_doce
-                    doce.preco
-                    */
 
                     html += `
-                    <h3>${doce.nome_doce}</h3>
-                    <p>Preço: R$ ${doce.preco}</p>
-                    <hr>
-                `;
-                    /*
-                    Adiciona ao HTML:
-    
-                    Nome do doce
-                    Preço do doce
-                    Linha separadora
-    
-                    ${} serve para inserir valores de variáveis
-                    dentro do template string
-                    */
+                        <h3>${doce.nome_doce}</h3>
+                        <p>Preço: R$ ${doce.preco}</p>
+                        <hr>
+                    `;
                 });
 
                 document.getElementById('resultado').innerHTML = html;
-                /*
-                Procura o elemento com id="resultado"
-    
-                Substitui seu conteúdo pelo HTML criado acima
-    
-                Assim os doces aparecem na tela
-                */
 
             } catch (erro) {
-                // Executa caso aconteça algum erro
 
                 console.error('Erro:', erro);
-                /*
-                Mostra detalhes do erro no console do navegador
-                (F12 → Console)
-                */
 
                 document.getElementById('resultado').innerHTML =
                     'Erro ao consultar o servidor.';
-                /*
-                Exibe uma mensagem de erro para o usuário
-                */
             }
         }
 
-
         async function ftrufas() {
-            // Função para listar somente as trufas
 
             try {
-                // Faz a requisição ao servidor
 
                 const resposta = await fetch(
                     `http://${enderecoServidor}:${porta}/trufas`
@@ -164,10 +110,10 @@
                 dados.forEach(doce => {
 
                     html += `
-                    <h3>${doce.nome_doce}</h3>
-                    <p>Preço: R$ ${doce.preco}</p>
-                    <hr>
-                `;
+                        <h3>${doce.nome_doce}</h3>
+                        <p>Preço: R$ ${doce.preco}</p>
+                        <hr>
+                    `;
                 });
 
                 document.getElementById('resultado').innerHTML = html;
@@ -182,10 +128,8 @@
         }
 
         async function fpaodemel() {
-            // Função para listar somente oa pães de mel
 
             try {
-                // Faz a requisição ao servidor
 
                 const resposta = await fetch(
                     `http://${enderecoServidor}:${porta}/paodemel`
@@ -204,10 +148,10 @@
                 dados.forEach(doce => {
 
                     html += `
-                    <h3>${doce.nome_doce}</h3>
-                    <p>Preço: R$ ${doce.preco}</p>
-                    <hr>
-                `;
+                        <h3>${doce.nome_doce}</h3>
+                        <p>Preço: R$ ${doce.preco}</p>
+                        <hr>
+                    `;
                 });
 
                 document.getElementById('resultado').innerHTML = html;
@@ -220,6 +164,7 @@
                     'Erro ao consultar o servidor.';
             }
         }
+
     </script>
 
 </body>

@@ -1,25 +1,35 @@
-:root{
+/* Cria variáveis de cores para facilitar alterações futuras */
+:root {
     --preto: black;
     --branco: white;
     --vermelho: red;
 }
 
-/* Remove margens padrão */
+/* Remove as margens e espaçamentos padrão de todos os elementos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Faz com que padding e borda não aumentem o tamanho do elemento */
 }
 
 /* Corpo da página */
 body {
     font-family: Arial, Helvetica, sans-serif;
+    /* Define a fonte */
+
     background-color: var(--branco);
+    /* Cor de fundo da página */
+
     color: var(--vermelho);
+    /* Cor padrão dos textos */
+
     min-height: 100vh;
+    /* Faz o body ocupar no mínimo toda a altura da tela */
 
     display: flex;
     flex-direction: column;
+    /* Organiza header, conteúdo e footer em coluna */
 }
 
 /* Cabeçalho */
@@ -33,88 +43,174 @@ header {
     box-shadow: 0 2px 10px var(--vermelho);
 }
 
-/* Área principal */
+/* Área principal da página */
 main {
     flex: 1;
+    /* Faz o conteúdo ocupar o espaço disponível */
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 30px;
 }
 
-/* Caixa principal */
+/* Caixa principal do sistema */
 .container {
     background-color: var(--branco);
+
     width: 100%;
     max-width: 700px;
+    /* Largura máxima da caixa */
+
     padding: 30px;
+
     border-radius: 15px;
+    /* Cantos arredondados */
+
     box-shadow: 0 5px 15px var(--vermelho);
+    /* Sombra vermelha */
+
     text-align: center;
 }
 
-/* Título */
+/* Título principal */
 h1 {
     color: var(--vermelho);
     margin-bottom: 20px;
 }
 
-/* Botão */
+/* Botões */
 button {
     background-color: var(--vermelho);
     color: var(--branco);
+
     border: none;
+
     padding: 12px 25px;
+
     font-size: 16px;
+
     border-radius: 8px;
+
     cursor: pointer;
+    /* Mostra a mãozinha ao passar o mouse */
+
     transition: 0.3s;
+    /* Animação suave */
 }
 
+/* Efeito quando passa o mouse */
 button:hover {
     background-color: var(--vermelho);
     transform: scale(1.05);
+    /* Aumenta levemente o botão */
 }
 
-/* Área de resultados */
-.resultado {
-    margin-top: 25px;
-    padding: 15px;
-    min-height: 80px;
+/* Galeria das imagens */
+.galeria {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+    /* Espaço entre as imagens */
+
+    margin: 25px 0;
+}
+
+/* Cada imagem com seu texto */
+.card {
+    text-align: center;
+}
+
+/* Imagens */
+.card img {
+    width: 180px;
+    height: 130px;
+
+    object-fit: cover;
+    /* Mantém a imagem proporcional */
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 10px var(--vermelho);
+}
+
+/* Nome das imagens */
+.card p {
+    margin-top: 8px;
+    font-weight: bold;
+    color: var(--vermelho);
+}
+
+/* ================================================= */
+/* CAIXA DOS RESULTADOS                              */
+/* ================================================= */
+
+/* Esta caixa terá a barra de rolagem */
+.resultado-container {
+    margin-top: 20px;
+
+    height: 180px;
+    /* Altura menor da caixa */
+
+    overflow-y: auto;
+    /* Barra de rolagem */
+
+    overflow-x: hidden;
+
     background-color: var(--branco);
+
+    border: 2px solid var(--vermelho);
+
     border-radius: 10px;
+
+    padding: 10px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+
     text-align: left;
+}
+
+/* Área onde o JavaScript coloca os doces */
+.resultado {
+
+    margin-top: 0;
+
+    padding: 5px;
+
+    background-color: transparent;
+
+    min-height: auto;
+
+    text-align: left;
+}
+
+/* Nome do doce */
+.resultado h3 {
+    color: var(--vermelho);
+
+    margin-bottom: 5px;
+}
+
+/* Preço do doce */
+.resultado p {
+    margin-bottom: 10px;
+}
+
+/* Linha separadora */
+.resultado hr {
+    margin: 15px 0;
 }
 
 /* Rodapé */
 footer {
     background-color: var(--vermelho);
+
     color: var(--branco);
+
     text-align: center;
+
     padding: 15px;
-}
-
-.galeria {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 25px 0;
-}
-
-.card {
-    text-align: center;
-}
-
-.card img {
-    width: 180px;
-    height: 130px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 5px 10px var(--vermelho);
-}
-
-.card p {
-    margin-top: 8px;
-    font-weight: bold;
-    color: var(--vermelho);
 }
